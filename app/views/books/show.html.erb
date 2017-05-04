@@ -1,4 +1,29 @@
 <p id="notice"><%= notice %></p>
 
+<div class="container">
+  <table class="table table-bordered">
+      <thead>
+        <tr>
+          <th>Attribiute</th>
+          <th>Value</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Title</td>
+          <td><%= @book.name %></td>
+        </tr>
+        <tr>
+          <td>Author</td>
+          <td><%= @book.author %></td>
+        </tr>
+        <tr>
+          <td>ISBN</td>
+          <td><%= @book.isbn %></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>

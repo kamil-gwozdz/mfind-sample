@@ -29,20 +29,23 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Biblioteczka</a>
+                <a class="navbar-brand" href="#">MyLib</a>
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
                     <li>
                         <% if current_user %>
-                          <%= link_to "Wyloguj", signout_path, id: "sign_out" %>
+                          <%= link_to "Logout", signout_path, id: "sign_out" %>
                         <% else %>
-                          <%= link_to "Zaloguj", "/auth/google_oauth2", id: "sign_in" %>
+                          <%= link_to "Login", "/auth/google_oauth2", id: "sign_in" %>
                         <% end %>
                     </li>
                     <li>
-                      <a href="#">Moje książki</a>
+                      <%= link_to "All Books", books_path %>
+                    </li>
+                    <li>
+                      <%= link_to "My Books", books_path %>
                     </li>
                 </ul>
             </div>

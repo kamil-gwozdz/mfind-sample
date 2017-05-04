@@ -76,6 +76,7 @@ GEM
     jbuilder (2.6.3)
       activesupport (>= 3.0.0, < 5.2)
       multi_json (~> 1.2)
+    jquery-datatables (1.10.13)
     jquery-rails (4.3.1)
       rails-dom-testing (>= 1, < 3)
       railties (>= 4.2.0)
@@ -222,6 +223,7 @@ DEPENDENCIES
   coffee-rails (~> 4.2)
   font-awesome-rails
   jbuilder (~> 2.5)
+  jquery-datatables
   jquery-rails
   less-rails-bootstrap
   listen (>= 3.0.5, < 3.2)

@@ -11,7 +11,17 @@
     </div>
   <% end %>
 
+  <%= label_tag(:name, "Title:") %>
+  <%= form.text_field :name %>
+  <br/>
+  <%= label_tag(:author, "Author:") %>
+  <%= form.text_field :author %>
+  <br/>
+  <%= label_tag(:isbn, "ISBN:") %>
+  <%= form.number_field :isbn %>
+
+
   <div class="actions">
-    <%= form.submit %>
+    <%= form.submit "Send", class: "btn btn-large btn-primary" %>
   </div>
 <% end %>
