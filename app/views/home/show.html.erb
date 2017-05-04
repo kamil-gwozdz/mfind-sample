@@ -1,4 +1,8 @@
 <div class="col-lg-12 text-center">
-    <h1>Home page</h1>
-    <p class="lead">~Kamil Gwóźdź</p>
+    <% if current_user %>
+      <h1>Zalogowany jako <%= current_user.name %></h1>
+    <% else %>
+      <h1>Strona domowa</h1>
+      <p class="lead">~Kamil Gwóźdź</p>
+    <% end %>
 </div>

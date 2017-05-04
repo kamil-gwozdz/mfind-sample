@@ -35,7 +35,7 @@ gem 'jquery-rails'  # If using Bootstrap's JS plugins.
 gem 'less-rails-bootstrap'
 gem "omniauth-google-oauth2", "~> 0.2.1"
 gem "font-awesome-rails"
-gem 'haml', '>= 4.0.5'
+gem 'sprockets'
 
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
