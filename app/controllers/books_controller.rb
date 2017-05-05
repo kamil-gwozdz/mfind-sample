@@ -70,7 +70,7 @@ class BooksController < ApplicationController
   end
 
   def my
-    @books = current_user.book_checkouts.where(returned_at: nil).map(&:book)
+    @books = current_user.book_checkouts.where(returned_at: nil).map(&:book).compact
   end
 
   private
