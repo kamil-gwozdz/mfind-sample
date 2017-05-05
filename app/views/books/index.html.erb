@@ -23,7 +23,7 @@
           <i class="fa fa-eye"></i></a>
           <a href="<%= edit_book_url(book) %>" class="btn btn-large btn-warning" >
           <i class="fa fa-pencil"></i></a>
-          <button <%= "disabled" if book.is_borrowed? %> onclick=borrow(<%=book.id%>,this) class="btn btn-large btn-success" >
+          <button <%= "disabled" if book.borrowed %> onclick=borrow(<%=book.id%>,this) class="btn btn-large btn-success" >
           <i class="fa fa-hand-lizard-o"></i></button>
           <a href="<%= book_url(book) %>" data-confirm="Are you sure?" rel="nofollow" data-method="delete" class="btn btn-large btn-danger" >
           <i class="fa fa-trash"></i></a>

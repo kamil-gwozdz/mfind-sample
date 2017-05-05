@@ -1,7 +1,5 @@
 class User < ActiveRecord::Base
-
   has_many :book_checkouts
-  has_many :books, through: :book_checkouts
 
   def self.from_omniauth(auth)
     where(provider: auth.provider, uid: auth.uid).first_or_initialize.tap do |user|

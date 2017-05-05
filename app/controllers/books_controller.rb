@@ -63,14 +63,14 @@ class BooksController < ApplicationController
   end
 
   def borrow
-    current_user.book_checkouts.update(book: @book, returned_at: Time.now) if @book.is_borrowed?
-    current_user.book_checkouts.create(book: @book) unless @book.is_borrowed?
+    BookCheckout.where(book: @book, user: current_user, returned_at: nil).update(returned_at: Time.now) if @book.borrowed
+    current_user.book_checkouts.create(book: @book) unless @book.borrowed
     @book.toggle! :borrowed
     redirect_to @book
   end
 
   def my
-    @books = current_user.books.where(borrowed: true)
+    @books = current_user.book_checkouts.where(returned_at: nil).map(&:book)
   end
 
   private
