@@ -24,6 +24,7 @@
     </tbody>
   </table>
 </div>
+
 <% unless @book.book_checkouts.empty? %>
   <div class="container">
     <table id="checkout-log" class="table table-bordered">
@@ -46,6 +47,3 @@
     </table>
   </div>
 <% end %>
-
-<%= link_to 'Edit', edit_book_path(@book) %> |
-<%= link_to 'Back', books_path %>

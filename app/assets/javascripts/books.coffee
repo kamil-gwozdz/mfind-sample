@@ -5,4 +5,4 @@ $(document).ready ->
 @borrow = (id, e) ->
   if !$(e).is(':disabled')
     $(e).attr 'disabled', 'disabled'
-    window.location = 'books/' + id + '/borrow'
+    window.location = '/books/' + id + '/borrow'

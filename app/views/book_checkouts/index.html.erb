@@ -19,8 +19,8 @@
       <tr>
         <td><%= book_checkout.id %></td>
         <td><%= book_checkout.user.name %></td>
-        <td><%= book_checkout.book.name %></td>
-        <td><%= book_checkout.book.author %></td>
+        <td><%= book_checkout.book.nil? ? "resource deleted" : book_checkout.book.name %></td>
+        <td><%= book_checkout.book.nil? ? "resource deleted" : book_checkout.book.author %></td>
         <td><%= book_checkout.created_at %></td>
         <td class="text-center"><%= book_checkout.returned_at.nil? ? "-----------------------------" : book_checkout.returned_at %></td>
       </tr>
