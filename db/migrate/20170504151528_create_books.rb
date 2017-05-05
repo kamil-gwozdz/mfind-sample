@@ -4,6 +4,7 @@ class CreateBooks < ActiveRecord::Migration[5.1]
       t.string :name
       t.string :author
       t.integer :isbn, :limit => 8
+      t.boolean :borrowed, default: false
 
       t.timestamps
     end

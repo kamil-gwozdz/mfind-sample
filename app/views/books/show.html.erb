@@ -2,28 +2,50 @@
 
 <div class="container">
   <table class="table table-bordered">
-      <thead>
-        <tr>
-          <th>Attribiute</th>
-          <th>Value</th>
-        </tr>
+    <thead>
+      <tr>
+        <th>Attribiute</th>
+        <th>Value</th>
+      </tr>
       </thead>
       <tbody>
+      <tr>
+        <td>Title</td>
+        <td><%= @book.name %></td>
+      </tr>
+      <tr>
+        <td>Author</td>
+        <td><%= @book.author %></td>
+      </tr>
+      <tr>
+        <td>ISBN</td>
+        <td><%= @book.isbn %></td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<% unless @book.book_checkouts.empty? %>
+  <div class="container">
+    <table id="checkout-log" class="table table-bordered">
+      <thead>
         <tr>
-          <td>Title</td>
-          <td><%= @book.name %></td>
+          <th>User</th>
+          <th>Borrow date</th>
+          <th>Return date</th>
         </tr>
-        <tr>
-          <td>Author</td>
-          <td><%= @book.author %></td>
-        </tr>
-        <tr>
-          <td>ISBN</td>
-          <td><%= @book.isbn %></td>
-        </tr>
+        </thead>
+        <tbody>
+          <% @book.book_checkouts.each do |entry| %>
+            <tr>
+              <td><%= entry.user.name %></td>
+              <td><%= entry.created_at %></td>
+              <td class="text-center"><%= entry.returned_at.nil? ? "-----------------------------" : entry.returned_at %></td>
+            </tr>
+          <% end %>
       </tbody>
     </table>
   </div>
+<% end %>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>

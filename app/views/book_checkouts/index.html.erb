@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Checkout Log</h1>
+
+<table id="all-checkouts-log" class="table table-striped">
+  <thead>
+    <tr>
+      <th>#</th>
+      <th>User</th>
+      <th>Book title</th>
+      <th>Book author</th>
+      <th>Borrow date</th>
+      <th>Return date</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @book_checkouts.each do |book_checkout| %>
+      <tr>
+        <td><%= book_checkout.id %></td>
+        <td><%= book_checkout.user.name %></td>
+        <td><%= book_checkout.book.name %></td>
+        <td><%= book_checkout.book.author %></td>
+        <td><%= book_checkout.created_at %></td>
+        <td class="text-center"><%= book_checkout.returned_at.nil? ? "-----------------------------" : book_checkout.returned_at %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

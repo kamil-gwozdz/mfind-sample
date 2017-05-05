@@ -1,5 +1,6 @@
 class BooksController < ApplicationController
-  before_action :set_book, only: [:show, :edit, :update, :destroy]
+  before_action :authenticate_user!
+  before_action :set_book, only: [:show, :edit, :update, :destroy, :borrow]
 
   # GET /books
   # GET /books.json
@@ -62,17 +63,24 @@ class BooksController < ApplicationController
   end
 
   def borrow
+    current_user.book_checkouts.update(book: @book, returned_at: Time.now) if @book.is_borrowed?
+    current_user.book_checkouts.create(book: @book) unless @book.is_borrowed?
+    @book.toggle! :borrowed
+    redirect_to @book
+  end
 
+  def my
+    @books = current_user.books.where(borrowed: true)
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_book
-      @book = Book.find(params[:id])
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_book
+    @book = Book.find(params[:id])
+  end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
-    def book_params
-      params.require(:book).permit(:name, :isbn, :author)
-    end
+  # Never trust parameters from the scary internet, only allow the white list through.
+  def book_params
+    params.require(:book).permit(:name, :isbn, :author)
+  end
 end

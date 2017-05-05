@@ -5,4 +5,8 @@ class ApplicationController < ActionController::Base
   def current_user
     @current_user ||= User.find_by_id(session[:user_id]) if session[:user_id]
   end
+
+  def authenticate_user!
+    redirect_to "/auth/google_oauth2" unless current_user
+  end
 end

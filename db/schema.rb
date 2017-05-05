@@ -15,8 +15,7 @@ ActiveRecord::Schema.define(version: 20170504151528) do
   create_table "book_checkouts", force: :cascade do |t|
     t.integer "user_id"
     t.integer "book_id"
-    t.datetime "borrow_date"
-    t.date "return_date"
+    t.datetime "returned_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["book_id"], name: "index_book_checkouts_on_book_id"
@@ -27,6 +26,7 @@ ActiveRecord::Schema.define(version: 20170504151528) do
     t.string "name"
     t.string "author"
     t.integer "isbn", limit: 8
+    t.boolean "borrowed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

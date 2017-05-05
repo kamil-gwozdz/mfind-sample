@@ -1,3 +1,8 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+$(document).ready ->
+  $('#checkout-log').DataTable()
+  $('#books').DataTable()
+
+@borrow = (id, e) ->
+  if !$(e).is(':disabled')
+    $(e).attr 'disabled', 'disabled'
+    window.location = 'books/' + id + '/borrow'
