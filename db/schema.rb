@@ -12,9 +12,12 @@
 
 ActiveRecord::Schema.define(version: 20170504151528) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "book_checkouts", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "book_id"
+    t.bigint "user_id"
+    t.bigint "book_id"
     t.datetime "returned_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -25,7 +28,7 @@ ActiveRecord::Schema.define(version: 20170504151528) do
   create_table "books", force: :cascade do |t|
     t.string "name"
     t.string "author"
-    t.integer "isbn", limit: 8
+    t.bigint "isbn"
     t.boolean "borrowed", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
