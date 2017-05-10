@@ -1,6 +1,6 @@
 # README
 
-Sample training app.
+Simple library app.
 
 
 * Ruby 2.4.1
